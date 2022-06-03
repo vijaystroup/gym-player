@@ -1,2 +1,3 @@
-# mplayer
-Music Player
+# gym-player
+
+Gym Player

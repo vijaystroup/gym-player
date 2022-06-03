@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Player</title>
+
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 1rem .5rem;
+      background-color: #171717;
+      margin: .5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: .5rem;
+      cursor: pointer;
+      transition: 50ms;
+    }
+    li:hover {
+      transform: translateY(-.1rem);
+    }
+    #play {
+      text-align: center;
+
+      font-size: 1.5rem;
+      background-color: #1E2022;
+      color: white;
+      padding: .5rem 1rem;
+      border-radius: .5rem;
+      cursor: pointer;
+      min-width: 8rem;
+    }
+    .song-list {
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Gym Player</h1>
+  <div style="width: 100%; display: flex; justify-content: center;">
+    <button id="play">Play</button>
+  </div>
+
+  <ul class="song-list">
+    <li class="song">Alejandro</li>
+    <li class="song">Monster</li>
+    <li class="song">All I Ever Wanted</li>
+    <li class="song">Mortal Kombat Theme</li>
+    <li class="song">Around The World (La La La)</li>
+    <li class="song">Mr. Saxobeat</li>
+    <li class="song">Bad</li>
+    <li class="song">Only Girl</li>
+    <li class="song">Barbie Girl</li>
+    <li class="song">Outside</li>
+    <li class="song">Blinding Lights</li>
+    <li class="song">Part of Me</li>
+    <li class="song">Break Your Heart</li>
+    <li class="song">Payphone</li>
+    <li class="song">Can You Feel My Heart</li>
+    <li class="song">Poker Face</li>
+    <li class="song">Cool For The Summer</li>
+    <li class="song">Radioactive</li>
+    <li class="song">Dark Horse</li>
+    <li class="song">S&M</li>
+    <li class="song">Disturbia</li>
+    <li class="song">Set Fire To The Rain</li>
+    <li class="song">Domino</li>
+    <li class="song">Stamp On The Ground</li>
+    <li class="song">Stereo Love</li>
+    <li class="song">Glad You Came</li>
+    <li class="song">Symphony</li>
+    <li class="song">Good Feeling</li>
+    <li class="song">Telephone</li>
+    <li class="song">He's a Pirate</li>
+    <li class="song">This Is What You Came For</li>
+    <li class="song">House of memories</li>
+    <li class="song">TiK ToK</li>
+    <li class="song">hung up</li>
+    <li class="song">Turn me on</li>
+    <li class="song">I Am Titanium</li>
+    <li class="song">Viva La Vida</li>
+    <li class="song">I Kissed A Girl</li>
+    <li class="song">Whenever Wherever</li>
+    <li class="song">Just Dance</li>
+    <li class="song">Where Have You Been</li>
+    <li class="song">mne malo malo malo tebya</li>
+  </ul>
+
+  <script defer>
+    let audioElement = new Audio()
+    const songList = document.querySelectorAll('.song')
+    const playBtn = document.getElementById('play')
+  
+    playBtn.addEventListener('click', event => {
+      if (event.target.innerText === 'Play') {
+        if (audioElement != null) {
+          audioElement.play()
+          event.target.innerText = 'Pause'
+        }
+      } else {
+        audioElement.pause()
+        event.target.innerText = 'Play'
+      }
+    })
+
+    songList.forEach(item => {
+      item.addEventListener('click', async event => {
+        await audioElement.pause()
+        await songList.forEach(item => {
+          item.innerText === event.target.innerText ? item.style = 'color: #DA0037' : item.style = 'color: white'
+        })
+        audioElement = new Audio(`music/${event.target.innerText}.mp3`)
+        audioElement.play()
+        playBtn.innerText = 'Pause'
+      })
+    })
+  </script>
+</body>
+</html>
