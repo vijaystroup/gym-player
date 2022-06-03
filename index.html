@@ -41,14 +41,15 @@
       min-width: 8rem;
     }
     .song-list {
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
   <h1 style="text-align:center;">Gym Player</h1>
-  <div style="width: 100%; display: flex; justify-content: center;">
+  <div style="width: 100%; display: flex; flex-direction:column; align-items: center;">
     <button id="play">Play</button>
+    <p id="timer" style="font-size: 1.5rem;">0</p>
   </div>
 
   <ul class="song-list">
@@ -98,8 +99,11 @@
 
   <script defer>
     let audioElement = new Audio()
+    let playbackInterval = null
+    let currentSong = ''
     const songList = document.querySelectorAll('.song')
     const playBtn = document.getElementById('play')
+    const timer = document.getElementById('timer')
   
     playBtn.addEventListener('click', event => {
       if (event.target.innerText === 'Play') {
@@ -110,20 +114,43 @@
       } else {
         audioElement.pause()
         event.target.innerText = 'Play'
+        autoPlay('Monster')
       }
     })
 
-    songList.forEach(item => {
-      item.addEventListener('click', async event => {
-        await audioElement.pause()
-        await songList.forEach(item => {
-          item.innerText === event.target.innerText ? item.style = 'color: #DA0037' : item.style = 'color: white'
+    function playNext(song) {
+      audioElement.pause()
+        clearInterval(playbackInterval)
+        songList.forEach(item => {
+          item.innerText === song ? item.style = 'color: #DA0037' : item.style = 'color: white'
         })
-        audioElement = new Audio(`music/${event.target.innerText}.mp3`)
+        audioElement = new Audio(`music/${song}.mp3`)
         audioElement.play()
+        audioElement.addEventListener('loadeddata', () => {
+          timer.innerText = Math.round(audioElement.duration)
+          currentSong = song
+          playbackInterval = setInterval(countdown, 1000)
+        })
         playBtn.innerText = 'Pause'
+    }
+
+    songList.forEach(item => {
+      item.addEventListener('click', event => {
+        playNext(event.target.innerText)
+        audioElement.addEventListener('ended', () => autoPlay(currentSong))
       })
     })
+
+    function countdown() {
+      if (playBtn.innerText === 'Pause')
+        timer.innerText = timer.innerText - 1
+    }
+
+    function autoPlay(text) {
+      const xpath = `//li[text()='${text}']`;
+      const matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+      playNext(matchingElement.nextSibling.nextSibling.innerText)
+    }
   </script>
 </body>
 </html>
