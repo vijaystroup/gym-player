@@ -1,0 +1,255 @@
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-color: #202020;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+ion-icon {
+  font-size: 1.5rem;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.wrapper {
+  width: 400px;
+  overflow: hidden;
+  position: relative;
+  background: #F7FBFD;
+  -webkit-box-shadow: 0px 6px 15px #4E86A5;
+          box-shadow: 0px 6px 15px #4E86A5;
+  border-radius: 8px;
+  padding: 25px 30px;
+}
+
+.wrapper ion-icon {
+  cursor: pointer;
+}
+
+.top-bar,
+.progress-area .timer,
+.controls,
+.music-list .header,
+.music-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.top-bar ion-icon,
+.progress-area .timer ion-icon,
+.controls ion-icon,
+.music-list .header ion-icon,
+.music-list li ion-icon {
+  font-size: 2em;
+}
+
+.top-bar span,
+.progress-area .timer span,
+.controls span,
+.music-list .header span,
+.music-list li span {
+  font-size: 1.5rem;
+}
+
+.img-area {
+  height: 256px;
+  width: 100%;
+  -webkit-box-shadow: 0px 6px 12px #AEBEC6;
+          box-shadow: 0px 6px 12px #AEBEC6;
+  border-radius: 15px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.img-area img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+.song-details {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.song-details .name {
+  font-size: 2rem;
+}
+
+.song-details .artist {
+  opacity: 0.9;
+  font-size: 1rem;
+  color: #728C98;
+}
+
+.progress-area {
+  height: 6px;
+  width: 100%;
+  background: #728C98;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.progress-area .timer {
+  margin-top: 2px;
+}
+
+.progress-area .timer span {
+  font-size: 1rem;
+}
+
+.progress-area:hover .progress-bar::before {
+  opacity: 1;
+}
+
+.progress-area .progress-bar {
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: #7cd6ff;
+}
+
+.progress-area .progress-bar::before {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: inherit;
+  top: 50%;
+  right: -5px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: inherit;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.controls {
+  margin: 40px 0 5px 0;
+}
+
+.controls ion-icon {
+  font-size: 3rem;
+  padding: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #728C98;
+}
+
+.music-list {
+  position: absolute;
+  left: 0;
+  bottom: -55%;
+  opacity: 0;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.14s ease-out;
+  transition: all 0.14s ease-out;
+  background: #F7FBFD;
+}
+
+.music-list ul {
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 10px 0;
+}
+
+.music-list ul::-webkit-scrollbar {
+  width: 0px;
+}
+
+.music-list ul li {
+  cursor: pointer;
+  list-style: none;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #AEBEC6;
+}
+
+.music-list ul li .audio-duration {
+  font-size: 1rem;
+  margin-right: 2rem;
+}
+
+.music-list ul li .row p {
+  opacity: 0.9;
+}
+
+.music-list ul li .row span {
+  font-size: 1rem;
+}
+
+.music-list ul li .row .selected {
+  color: #7cd6ff;
+}
+
+.music-list ul li:last-child {
+  border-bottom: 0px;
+}
+
+.music-list .show-list {
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header #close {
+  font-size: 2rem;
+}
+
+.header .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.header .row ion-icon {
+  cursor: default;
+}
+
+.header .row span {
+  margin-left: 5px;
+}
+
+.hide-el {
+  display: none;
+}
+
+.show-el {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

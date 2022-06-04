@@ -1,158 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gym Player</title>
 
-  <style>
-    body {
-      background-color: black;
-      color: white;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      padding: 1rem .5rem;
-      background-color: #171717;
-      margin: .5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      border-radius: .5rem;
-      cursor: pointer;
-      transition: 50ms;
-    }
-    li:hover {
-      transform: translateY(-.1rem);
-    }
-    #play {
-      text-align: center;
+  <link rel="stylesheet" href="/dist/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 
-      font-size: 1.5rem;
-      background-color: #1E2022;
-      color: white;
-      padding: .5rem 1rem;
-      border-radius: .5rem;
-      cursor: pointer;
-      min-width: 8rem;
-    }
-    .song-list {
-      margin-top: 1rem;
-    }
-  </style>
+
 </head>
+
 <body>
-  <h1 style="text-align:center;">Gym Player</h1>
-  <div style="width: 100%; display: flex; flex-direction:column; align-items: center;">
-    <button id="play">Play</button>
-    <p id="timer" style="font-size: 1.5rem;">0</p>
+
+
+  <div class="wrapper">
+    <div class="top-bar">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+      <span>Now Playing</span>
+      <ion-icon id="open" name="ellipsis-horizontal-outline"></ion-icon>
+    </div>
+    <div class="img-area">
+      <img src="/assets/img/zyzz.jpg" alt="zyzz bruh">
+    </div>
+    <div class="song-details">
+      <p class="name"></p>
+      <p class="artist">Hardstyle Mix</p>
+    </div>
+    <div class="progress-area">
+      <div class="progress-bar"></div>
+      <div class="timer">
+        <span class="current">0:00</span>
+        <span class="duration">9:99</span>
+      </div>
+    </div>
+    <div class="controls">
+      <ion-icon id="skip-prev" name="return-down-back-outline"></ion-icon>
+      <ion-icon id="play" name="play-outline"></ion-icon>
+      <!-- <ion-icon id="pause" class="hidden" name="pause-outline"></ion-icon> -->
+      <ion-icon id="skip-next" name="return-down-forward-outline"></ion-icon>
+    </div>
+    <div class="music-list">
+      <div class="header">
+        <div class="row">
+          <ion-icon name="musical-notes-outline"></ion-icon>
+          <span>Song List</span>
+        </div>
+        <ion-icon id="close" name="close-circle-outline"></ion-icon>
+      </div>
+      <!-- Music row entries -->
+      <ul class="song-list">
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Alejandro</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Monster</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>All I Ever Wanted</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Mortal Kombat Theme</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Around The World (La La La)</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+
+        <li class="song">
+          <div class="row">
+            <span>Mr. Saxobeat</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Bad</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Only Girl</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Barbie Girl</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Outside</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Blinding Lights</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Part of Me</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Break Your Heart</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Payphone</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Can You Feel My Heart</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Poker Face</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Cool For The Summer</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Radioactive</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Dark Horse</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>S&M</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Disturbia</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Set Fire To The Rain</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Domino</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Stamp On The Ground</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Stereo Love</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Glad You Came</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Symphony</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Good Feeling</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Telephone</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>He's a Pirate</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>This Is What You Came For</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>House of memories</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>TiK ToK</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>hung up</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Turn me on</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>I Am Titanium</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Viva La Vida</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>I Kissed A Girl</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Whenever Wherever</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Just Dance</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Where Have You Been</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>mne malo malo malo tebya</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Blow</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Final Countdown</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+        <!-- Song -->
+        <li class="song">
+          <div class="row">
+            <span>Hey Baby</span>
+          </div>
+          <!-- <span class="audio-duration">9:99</span> -->
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <ul class="song-list">
-    <li class="song">Alejandro</li>
-    <li class="song">Monster</li>
-    <li class="song">All I Ever Wanted</li>
-    <li class="song">Mortal Kombat Theme</li>
-    <li class="song">Around The World (La La La)</li>
-    <li class="song">Mr. Saxobeat</li>
-    <li class="song">Bad</li>
-    <li class="song">Only Girl</li>
-    <li class="song">Barbie Girl</li>
-    <li class="song">Outside</li>
-    <li class="song">Blinding Lights</li>
-    <li class="song">Part of Me</li>
-    <li class="song">Break Your Heart</li>
-    <li class="song">Payphone</li>
-    <li class="song">Can You Feel My Heart</li>
-    <li class="song">Poker Face</li>
-    <li class="song">Cool For The Summer</li>
-    <li class="song">Radioactive</li>
-    <li class="song">Dark Horse</li>
-    <li class="song">S&M</li>
-    <li class="song">Disturbia</li>
-    <li class="song">Set Fire To The Rain</li>
-    <li class="song">Domino</li>
-    <li class="song">Stamp On The Ground</li>
-    <li class="song">Stereo Love</li>
-    <li class="song">Glad You Came</li>
-    <li class="song">Symphony</li>
-    <li class="song">Good Feeling</li>
-    <li class="song">Telephone</li>
-    <li class="song">He's a Pirate</li>
-    <li class="song">This Is What You Came For</li>
-    <li class="song">House of memories</li>
-    <li class="song">TiK ToK</li>
-    <li class="song">hung up</li>
-    <li class="song">Turn me on</li>
-    <li class="song">I Am Titanium</li>
-    <li class="song">Viva La Vida</li>
-    <li class="song">I Kissed A Girl</li>
-    <li class="song">Whenever Wherever</li>
-    <li class="song">Just Dance</li>
-    <li class="song">Where Have You Been</li>
-    <li class="song">mne malo malo malo tebya</li>
-    <li class="song">Blow</li>
-    <li class="song">Final Countdown</li>
-    <li class="song">Hey Baby</li>
-  </ul>
-
-  <script defer>
-    let audioElement = new Audio()
-    let playbackInterval = null
-    let currentSong = ''
-    const songList = document.querySelectorAll('.song')
-    const playBtn = document.getElementById('play')
-    const timer = document.getElementById('timer')
-  
-    playBtn.addEventListener('click', event => {
-      if (event.target.innerText === 'Play') {
-        if (audioElement != null) {
-          audioElement.play()
-          event.target.innerText = 'Pause'
-        }
-      } else {
-        audioElement.pause()
-        event.target.innerText = 'Play'
-      }
-    })
-
-    function playNext(song) {
-      audioElement.pause()
-        clearInterval(playbackInterval)
-        songList.forEach(item => {
-          item.innerText === song ? item.style = 'color: #DA0037' : item.style = 'color: white'
-        })
-        audioElement = new Audio(`music/${song}.mp3`)
-        audioElement.play()
-        audioElement.addEventListener('loadeddata', () => {
-          timer.innerText = Math.round(audioElement.duration)
-          currentSong = song
-          playbackInterval = setInterval(countdown, 1000)
-        })
-        playBtn.innerText = 'Pause'
-    }
-
-    songList.forEach(item => {
-      item.addEventListener('click', event => {
-        playNext(event.target.innerText)
-        audioElement.addEventListener('ended', () => autoPlay(currentSong))
-      })
-    })
-
-    function countdown() {
-      if (playBtn.innerText === 'Pause')
-        timer.innerText = timer.innerText - 1
-    }
-
-    function autoPlay(text) {
-      const xpath = `//li[text()='${text}']`;
-      const matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-      playNext(matchingElement.nextSibling.nextSibling.innerText)
-    }
-  </script>
+  <script src="/assets/js/player.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

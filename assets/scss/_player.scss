@@ -1,0 +1,238 @@
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #202020;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+ion-icon {
+    font-size: 1.5rem;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.wrapper {
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+    background: $palest;
+    box-shadow: 0px 6px 15px $shade;
+    border-radius: 8px;
+    padding: 25px 30px;
+
+    ion-icon {
+        cursor: pointer;
+    }
+}
+
+// Give them space between using flex
+.top-bar,
+.progress-area .timer,
+.controls,
+.music-list .header,
+.music-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ion-icon {
+        font-size: 2em;
+    }
+
+    span {
+        font-size: 1.5rem;
+    }
+}
+
+.img-area {
+    height: 256px;
+    width: 100%;
+    box-shadow: 0px 6px 12px $mid;
+    border-radius: 15px;
+    margin-top: 1rem;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+.song-details {
+    text-align: center;
+    margin: 1rem 0;
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .artist {
+        opacity: 0.9;
+        font-size: 1rem;
+        color: $base;
+    }
+}
+
+.progress-area {
+    height: 6px;
+    width: 100%;
+    background: $base;
+    border-radius: 50px;
+    cursor: pointer;
+
+    .timer {
+        margin-top: 2px;
+
+        span {
+            font-size: 1rem;
+        }
+    }
+
+    // Show seeker circle on hover
+    &:hover {
+        .progress-bar {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    .progress-bar {
+        height: inherit;
+        width: 0%;
+        position: relative;
+        border-radius: inherit;
+        background: $glow;
+
+        // Create seeker circle and set opactiy 0
+        &::before {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 12px;
+            border-radius: inherit;
+            top: 50%;
+            right: -5px;
+            transform: translateY(-50%);
+            background: inherit;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+    }
+}
+
+.controls {
+    margin: 40px 0 5px 0;
+
+
+    ion-icon {
+        font-size: 3rem;
+        padding: 1rem;
+        user-select: none;
+        color: $base;
+    }
+}
+
+.music-list {
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    // pointer-events: none;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 -5px 10px rgba($color: #000000, $alpha: 0.1);
+    transition: all 0.14s ease-out;
+    background: $palest;
+
+    ul {
+        max-height: 200px;
+        overflow-y: auto;
+        margin: 10px 0;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        li {
+            cursor: pointer;
+            list-style: none;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid $mid;
+
+            .audio-duration {
+                font-size: 1rem;
+                margin-right: 2rem;
+            }
+
+            .row {
+
+                // If we add source text change opacity
+                p {
+                    opacity: 0.9;
+                }
+
+                // Song name font size
+                span {
+                    font-size: 1rem;
+                }
+
+                .selected {
+                    color: $glow;
+                }
+            }
+
+            // Remove the bottom border from the last list item
+            &:last-child {
+                border-bottom: 0px;
+            }
+        }
+    }
+}
+
+// Use this class to show the music list in javascript
+.music-list .show-list {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.header {
+    #close {
+        font-size: 2rem;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: #000000;
+
+        ion-icon {
+            cursor: default;
+        }
+
+        span {
+            margin-left: 5px;
+        }
+    }
+}
+
+.hide-el {
+    display: none;
+}
+
+.show-el {
+    display: block;
+}
