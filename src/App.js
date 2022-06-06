@@ -13,10 +13,6 @@ function App() {
       .then((t) => setTracks(t.split("\n").map((i) => `music/${i}`)));
   }, []);
 
-  useEffect(() => {
-    console.log(currentTrack);
-  }, [currentTrack]);
-
   return (
     <div className="App">
       <h1 className="title">
