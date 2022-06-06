@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gym-player/static/css/main.b4dbf63d.css",
+    "main.js": "/gym-player/static/js/main.5c9ee6e2.js",
+    "static/js/787.92c76b41.chunk.js": "/gym-player/static/js/787.92c76b41.chunk.js",
+    "index.html": "/gym-player/index.html",
+    "main.b4dbf63d.css.map": "/gym-player/static/css/main.b4dbf63d.css.map",
+    "main.5c9ee6e2.js.map": "/gym-player/static/js/main.5c9ee6e2.js.map",
+    "787.92c76b41.chunk.js.map": "/gym-player/static/js/787.92c76b41.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4dbf63d.css",
+    "static/js/main.5c9ee6e2.js"
+  ]
+}
